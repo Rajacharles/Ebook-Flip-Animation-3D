@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+*{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mobile-vw: 325px;
+  --mobile-vh: 675px;
+  --bg: #b3bcd2;
+  --mobile-radius: 25px;
+  --font-color: #fff;
+  --mobile-back: #414653;
+  --sep-height: 500px;
+  --inner-bg: #414653;
+  --transition: transform 0.7s ease-in-out;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+}
+
+.mobile-layout {
+  width: var(--mobile-vw);
+  height: var(--mobile-vh);
+  margin: 30px 0;
+  border-radius: var(--mobile-radius);
+  perspective: 500px;
+  overflow: hidden;
+  color: var(--font-color);
+  background-color: var(--mobile-back);
+  box-shadow: 35px 35px 50px 15px #b3bcd2;
+}
+
+.mobile-layout .book-top {
+  width: 170px;
+  position: absolute;
+  top: 180px;
+  left: 250px;
+  z-index: 5;
+  transform: translateZ(28.5px);
+}
+
+.mobile-layout .book-cover {
+  position: relative;
+  height: var(--sep-height);
+  width: calc(var(--mobile-vw) * 2);
+  left: -52.5%;
+  border-top-left-radius: var(--mobile-radius);
+  border-top-right-radius: var(--mobile-radius);
+  background-color: var(--inner-bg);
+  transform-style: preserve-3d;
+  transform-origin: 50% 40%;
+  transition: var(--transition);
+  z-index: 4;
+}
+
+.mobile-layout .notification-header {
+  position: fixed;
+  top: 5px;
+  width: 100%;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  z-index: 6;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+}
+
+.mobile-layout .actions {
+  position: fixed;
+  top: 37px;
+  z-index: 6;
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+}
+
+.mobile-layout .book-cover:hover {
+  transform: rotateX(75deg) translateZ(3px) scale(0.75);
+}
+
+.mobile-layout .book-side {
+  position: absolute;
+  top: 430px;
+  left: 222px;
+  transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(104deg);
+}
+
+.mobile-layout .preface {
+  background-color: #000126;
+  height: var(--sep-height);
+  padding: 50px;
+  transition: var(--transition);
+}
+
+.mobile-layout .preface .header {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-layout .preface .body {
+  font-family: "Quicksand", sans-serif;
+}
+
+.mobile-layout .preface .body p:first-child {
+  line-height: 32px;
+  margin-bottom: 15px;
+}
+
+.mobile-layout .preface .title {
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.mobile-layout .preface .author {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.mobile-layout .book-cover:hover + .preface { 
+  transform: translateY(-302px);
+}
+
+.mobile-layout .book-cover:hover + .preface .icon {
+  transform: rotateX(180deg);
+}
+
+.mobile-layout .preface .icon {
+  font-size: 20px;
+  transform-origin: top;
+  transition: var(--transition);
+}
